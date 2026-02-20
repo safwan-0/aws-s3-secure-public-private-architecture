@@ -1,0 +1,32 @@
+Defines what the role is allowed to do
+ Grants least-privilege access to the private bucket
+
+⚠ Replace your-private-bucket-unique-001
+
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Sid": "PrivateBucketAccess",
+      "Effect": "Allow",
+      "Action": [
+        "s3:ListBucket"
+      ],
+      "Resource": "arn:aws:s3:::your-private-bucket-unique-001"
+    },
+    {
+      "Sid": "PrivateObjectAccess",
+      "Effect": "Allow",
+      "Action": [
+        "s3:GetObject",
+        "s3:PutObject"
+      ],
+      "Resource": "arn:aws:s3:::your-private-bucket-unique-001/*"
+    }
+  ]
+}
+
+
+✔ Security purpose: restricts access to one bucket only
+✔ No wildcard permissions
+✔ Supports upload, download, listing
