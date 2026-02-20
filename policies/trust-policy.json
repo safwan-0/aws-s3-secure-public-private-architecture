@@ -1,0 +1,19 @@
+Defines who is allowed to assume the IAM role
+This lets EC2 securely obtain temporary credentials
+
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Effect": "Allow",
+      "Principal": {
+        "Service": "ec2.amazonaws.com"
+      },
+      "Action": "sts:AssumeRole"
+    }
+  ]
+}
+
+✔ Security purpose: establishes trust relationship
+✔ Only EC2 instances can use the role
+✔ No human access  
